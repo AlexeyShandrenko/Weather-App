@@ -1,0 +1,203 @@
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.wrapper {
+  min-height: 100vh;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 107rem;
+  margin: 0 auto;
+}
+
+.background-image {
+  position: absolute;
+}
+
+.background-image img {
+
+}
+
+.header {
+    flex: 1 0 auto;
+}
+
+.header__navigation {
+}
+
+.navigation {
+}
+
+.navigation__content {
+}
+
+.navigation__date {
+  margin: 0 0 20px 0;
+}
+
+.date {
+  font-style: normal;
+  font-weight: 100;
+  font-size: 1.57rem;
+  letter-spacing: 0.1em;
+  color: #666666;
+}
+
+.navigation__location {
+}
+
+.location {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1.57rem;
+  letter-spacing: 0.1em;
+  color: #0b0d0f;
+}
+
+.weather {
+}
+
+.weather__temperature-info {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  padding: 0 0 5px 0;
+  border-bottom: 4px solid #0b0d0f;
+}
+
+.weather__temperature {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 10rem;
+  color: #0b0d0f;
+}
+
+.weather__temperature span {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.weather__temperature-range {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.weather__amount {
+  font-style: normal;
+  font-weight: 100;
+  font-size: 1.57rem;
+  letter-spacing: 0.1em;
+  color: #666666;
+}
+
+.weather__description {
+  padding: 10px 0 0 0;
+  font-style: normal;
+  font-weight: 100;
+  font-size: 3rem;
+  letter-spacing: 0.1em;
+  color: #666666;
+  margin: 0 0 20px 0;
+}
+
+.block {
+  min-height: 200px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
