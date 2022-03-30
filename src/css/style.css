@@ -99,7 +99,7 @@ body {
   padding: 30px;
   display: flex;
   flex-direction: column;
-  background: url("./../../public/images/b1.jpg") 0 0 no-repeat;
+  background: url("./../../public/images/b8.jpg") 0 0 no-repeat;
 }
 
 .container {
@@ -228,19 +228,34 @@ body {
 
 .weather-list {
   overflow: auto;
-  min-height: 200px;
-  border: 1px solid #000;
-  
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 20px;
+  grid-template-columns: repeat(auto-fill, 150px);
+}
+
+.weather-list::-webkit-scrollbar {
+  display: none;
 }
 
 .weather-card {
-  border: 1px solid #000;
+  background: none;
   border-radius: 20px;
   text-align: center;
+  display: grid;
+  grid-auto-flow: row;
+}
+
+.weather-card:hover {
+  border: 2px solid #666666;
 }
 
 .weather-card__temperature {
-
+  font-style: normal;
+  font-weight: 100;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  color: #666666;
 }
 
 .weather-card__img {
@@ -248,5 +263,9 @@ body {
 }
 
 .weather-card__time {
-  
+  font-style: normal;
+  font-weight: 100;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  color: #666666;
 }

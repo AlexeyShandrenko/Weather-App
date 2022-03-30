@@ -5,15 +5,15 @@ const App = () => {
   const [latitude, setLatitude] = useState([]);
   const [longitude, setLongitude] = useState([]);
   const [currentdata, setCurrentData] = useState([]);
-  const [hourlyData, setHourlyData] = useState([]);
+  const [hourlyData, setHourlyData] = React.useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setLatitude(position.coords.latitude);
-        setLongitude(position.coords.longitude);
-      });
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+    });
 
+    const fetchData = async () => {
       await fetch(
         `${process.env.REACT_APP_API_URL}/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
       )
@@ -39,7 +39,7 @@ const App = () => {
   return (
     <div>
       {typeof currentdata.main !== "undefined" ? (
-        <WeatherDay weatherData={currentdata} weatherHourlyData={hourlyData} />
+        <WeatherDay latitude={latitude} longitude={longitude} weatherData={currentdata} hourlyWeather={hourlyData} />
       ) : (
         <div></div>
       )}

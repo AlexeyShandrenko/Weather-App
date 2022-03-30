@@ -2,7 +2,7 @@ import React from "react";
 
 const WeatherCard = (props) => {
   return (
-    <div className="weather-card">
+    <button className="weather-card">
       <div className="weather-card__temperature">
         {Math.round(props.temp)} &deg;C
       </div>
@@ -11,8 +11,8 @@ const WeatherCard = (props) => {
           src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`}
         />
       </div>
-      <div className="weather-card__time">{props.hours}</div>
-    </div>
+      <div className="weather-card__time">{props.hours} hours</div>
+    </button>
   );
 };
 

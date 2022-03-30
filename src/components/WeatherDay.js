@@ -7,8 +7,8 @@ const WeatherDay = (props) => {
     <div className="wrapper">
       <Header weather={props.weatherData} />
       <WeatherInfo
+        hourlyWeather={props.hourlyWeather}
         weather={props.weatherData}
-        hourlyWeather={props.weatherHourlyData}
       />
     </div>
   );
