@@ -4,7 +4,8 @@ import WeatherDay from "./components/WeatherDay";
 const App = () => {
   const [latitude, setLatitude] = useState([]);
   const [longitude, setLongitude] = useState([]);
-  const [data, setData] = useState([]);
+  const [currentdata, setCurrentData] = useState([]);
+  const [hourlyData, setHourlyData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,23 +15,33 @@ const App = () => {
       });
 
       await fetch(
-        `${process.env.REACT_APP_API_URL}/weather/?lat=${latitude}&lon=${longitude}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
+        `${process.env.REACT_APP_API_URL}/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
       )
         .then((res) => res.json())
         .then((result) => {
-          setData(result);
+          setCurrentData(result);
         });
     };
 
+    const fetchHourlyData = async () => {
+      await fetch(
+        `${process.env.REACT_APP_API_URL}/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          setHourlyData(result);
+        });
+    };
     fetchData();
+    fetchHourlyData();
   }, [latitude, longitude]);
 
   return (
     <div>
-      {typeof data.main !== "undefined" ? (
-        <WeatherDay weatherData={data} />
+      {typeof currentdata.main !== "undefined" ? (
+        <WeatherDay weatherData={currentdata} weatherHourlyData={hourlyData} />
       ) : (
-        <div>Weather app</div>
+        <div></div>
       )}
     </div>
   );

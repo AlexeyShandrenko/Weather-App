@@ -95,11 +95,15 @@ const Header = (props) => {
               {props.weather.name}, {props.weather.sys.country}
             </p>
           </div>
-          {/* <div className="navigation__burger-menu burger-menu">
-            <button>
-                <img src="./images/icons/menu.png"/>
+          <div className="navigation__burger-menu burger-menu">
+            <button className="burger-menu__button">
+              <img
+                src="./images/icons/hamburger.png"
+                height="32px"
+                width="32px"
+              />
             </button>
-        </div> */}
+          </div>
         </nav>
       </div>
     </header>
