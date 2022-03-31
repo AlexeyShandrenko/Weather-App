@@ -24,7 +24,7 @@ const WeatherInfo = (props) => {
             src={`http://openweathermap.org/img/wn/${props.weather.weather[0].icon}@2x.png`}
           />
         </div>
-        <WeatherList hourlyWeather={props.hourlyWeather}/>
+        <WeatherList hourlyWeather={props.hourlyWeather} />
       </div>
     </main>
   );

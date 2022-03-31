@@ -7,9 +7,7 @@ const WeatherCard = (props) => {
         {Math.round(props.temp)} &deg;C
       </div>
       <div className="weather-card__img">
-        <img
-          src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`}
-        />
+        <img src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`} />
       </div>
       <div className="weather-card__time">{props.hours} hours</div>
     </button>

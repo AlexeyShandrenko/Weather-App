@@ -94,6 +94,52 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+.load-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url("./../../public/images/b7.jpg") center no-repeat;
+}
+
+.load-page__title {
+  font-style: normal;
+  font-weight: 100;
+  font-size: 4rem;
+  letter-spacing: 0.1em;
+  color: #0b0d0f;
+  margin: 0 0 15px 0;
+}
+
+.load-page__description {
+  font-style: normal;
+  font-weight: 100;
+  font-size: 1.57rem;
+  letter-spacing: 0.1em;
+  color: #666666;
+  margin: 0 0 50px 0;
+}
+
+.load-page__circle {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 10px solid #ebebeb;
+  border-top: 10px solid #666666;
+  animation: animate 2s infinite linear;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .wrapper {
   min-height: 100vh;
   padding: 30px;
@@ -154,7 +200,6 @@ body {
 }
 
 .burger-menu {
-  
 }
 
 .burger-menu__button img {
@@ -231,7 +276,8 @@ body {
   display: grid;
   grid-auto-flow: column;
   column-gap: 20px;
-  grid-template-columns: repeat(auto-fill, 150px);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-auto-columns: minmax(150px, 1fr);
 }
 
 .weather-list::-webkit-scrollbar {
@@ -244,10 +290,11 @@ body {
   text-align: center;
   display: grid;
   grid-auto-flow: row;
+  padding: 10px 5px;
 }
 
 .weather-card:hover {
-  border: 2px solid #666666;
+  border: 1px solid #ebebeb;
 }
 
 .weather-card__temperature {
@@ -259,7 +306,6 @@ body {
 }
 
 .weather-card__img {
-
 }
 
 .weather-card__time {

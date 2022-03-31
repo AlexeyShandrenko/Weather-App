@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import WeatherDay from "./components/WeatherDay";
+import LoadingPage from "./components/LoadingPage";
 
 const App = () => {
   const [latitude, setLatitude] = useState([]);
@@ -39,9 +40,14 @@ const App = () => {
   return (
     <div>
       {typeof currentdata.main !== "undefined" ? (
-        <WeatherDay latitude={latitude} longitude={longitude} weatherData={currentdata} hourlyWeather={hourlyData} />
+        <WeatherDay
+          latitude={latitude}
+          longitude={longitude}
+          weatherData={currentdata}
+          hourlyWeather={hourlyData}
+        />
       ) : (
-        <div></div>
+        <LoadingPage />
       )}
     </div>
   );
