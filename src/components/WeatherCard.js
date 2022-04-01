@@ -19,7 +19,7 @@ const WeatherCard = (props) => {
         </div>
         <div className="weather-card__time">{props.hours} hours</div>
       </button>
-      {cardMode && <ModalWindow changeCardMode={changeCardMode} cardMode={cardMode} />}
+      {cardMode && <ModalWindow hour={props.hour} changeCardMode={changeCardMode} cardMode={cardMode} />}
     </div>
   );
 };

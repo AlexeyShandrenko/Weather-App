@@ -21,6 +21,7 @@ const WeatherList = (props) => {
         hourly.map((hour) => {
           return (
             <WeatherCard
+              hour={hour}
               key={Math.random()}
               hours={getHour()}
               temp={hour.temp}
