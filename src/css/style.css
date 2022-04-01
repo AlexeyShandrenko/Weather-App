@@ -202,6 +202,10 @@ body {
 .burger-menu {
 }
 
+.burger-menu__button {
+  background: none;
+}
+
 .burger-menu__button img {
   width: 35px;
   height: 35px;
@@ -290,7 +294,8 @@ body {
   text-align: center;
   display: grid;
   grid-auto-flow: row;
-  padding: 10px 5px;
+  padding: 10px 20px;
+  max-height: 200px;
 }
 
 .weather-card:hover {
@@ -314,4 +319,29 @@ body {
   font-size: 1.5rem;
   letter-spacing: 0.1em;
   color: #666666;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 500px;
+  width: 500px;
+  border-radius: 20px;
+  border: 1px solid #666666;
+  background-color: #fff;
+  padding: 15px;
+}
+
+.modal__exit {
+  text-align: right;
+}
+
+.modal__cross {
+  background: none;
+}
+
+.cross {
+
 }

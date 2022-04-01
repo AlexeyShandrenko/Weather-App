@@ -98,7 +98,7 @@ const Header = (props) => {
           <div className="navigation__burger-menu burger-menu">
             <button className="burger-menu__button">
               <img
-                src="./images/icons/hamburger.png"
+                src="./images/icons/b.png"
                 height="32px"
                 width="32px"
               />

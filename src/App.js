@@ -6,7 +6,7 @@ const App = () => {
   const [latitude, setLatitude] = useState([]);
   const [longitude, setLongitude] = useState([]);
   const [currentdata, setCurrentData] = useState([]);
-  const [hourlyData, setHourlyData] = React.useState([]);
+  const [hourlyData, setHourlyData] = useState([]);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
