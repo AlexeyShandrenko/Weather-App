@@ -9,14 +9,28 @@ const ModalWindow = (props) => {
         </button>
       </div>
       <div className="modal__img">
-          <img src={`http://openweathermap.org/img/wn/${props.hour.weather[0].icon}@2x.png`} />
+        <img
+          src={`http://openweathermap.org/img/wn/${props.hour.weather[0].icon}@2x.png`}
+        />
       </div>
-      <p className="modal__description">{props.hour.weather[0].description}</p>
-      <p className="modal__temperature">Temperaure: {Math.round(props.hour.temp)} &deg;C</p>
-      <p className="modal__feel">Feels like: {Math.round(props.hour.feels_like)}</p>
-      <p className="modal__pressure">Pressure: {Math.round(props.hour.pressure)}</p>
-      <p className="modal__clouds">Clouds: {Math.round(props.hour.clouds)}</p>
-      <p className="modal__humidity">Humidity: {Math.round(props.hour.humidity)}</p>
+      <div className="modal__info">
+        <p className="modal__description">
+          {props.hour.weather[0].description}
+        </p>
+        <p className="modal__temperature">
+          Temperaure: {Math.round(props.hour.temp)} &deg;C
+        </p>
+        <p className="modal__feel">
+          Feels like: {Math.round(props.hour.feels_like)}
+        </p>
+        <p className="modal__pressure">
+          Pressure: {Math.round(props.hour.pressure)}
+        </p>
+        <p className="modal__clouds">Clouds: {Math.round(props.hour.clouds)}</p>
+        <p className="modal__humidity">
+          Humidity: {Math.round(props.hour.humidity)}
+        </p>
+      </div>
     </div>
   );
 };

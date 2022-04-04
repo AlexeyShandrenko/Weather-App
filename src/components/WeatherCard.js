@@ -17,7 +17,7 @@ const WeatherCard = (props) => {
         <div className="weather-card__img">
           <img src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`} />
         </div>
-        <div className="weather-card__time">{props.hours} hours</div>
+        <div className="weather-card__time">{props.hours === 'now' ? 'now' : `${props.hours} hours`}</div>
       </button>
       {cardMode && <ModalWindow hour={props.hour} changeCardMode={changeCardMode} cardMode={cardMode} />}
     </div>

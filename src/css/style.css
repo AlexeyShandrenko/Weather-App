@@ -344,5 +344,38 @@ body {
 }
 
 .cross {
+}
 
+.modal__info {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.57rem;
+  letter-spacing: 0.1em;
+  color: #0b0d0f;
+}
+
+.modal__description {
+  font-weight: 100;
+  font-size: 3rem;
+  color: #666666;
+  margin: 0 0 20px 0;
+}
+
+.modal__temperature {
+  margin: 0 0 10px 0;
+}
+
+.modal__feel {
+  margin: 0 0 10px 0;
+}
+
+.modal__pressure {
+  margin: 0 0 10px 0;
+}
+
+.modal__clouds {
+  margin: 0 0 10px 0;
+}
+
+.modal__humidity {
 }

@@ -19,15 +19,27 @@ const WeatherList = (props) => {
     <div className="weather-list">
       {hourly &&
         hourly.map((hour) => {
-          return (
-            <WeatherCard
-              hour={hour}
-              key={Math.random()}
-              hours={getHour()}
-              temp={hour.temp}
-              icon={hour.weather[0].icon}
-            />
-          );
+          if (hourly.indexOf(hour) === 0) {
+            return (
+              <WeatherCard
+                hour={hour}
+                key={Math.random()}
+                hours="now"
+                temp={hour.temp}
+                icon={hour.weather[0].icon}
+              />
+            );
+          } else {
+            return (
+              <WeatherCard
+                hour={hour}
+                key={Math.random()}
+                hours={getHour()}
+                temp={hour.temp}
+                icon={hour.weather[0].icon}
+              />
+            );
+          }
         })}
     </div>
   );
