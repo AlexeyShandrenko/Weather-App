@@ -22,6 +22,7 @@ const WeatherList = (props) => {
           if (hourly.indexOf(hour) === 0) {
             return (
               <WeatherCard
+                units={props.units}
                 hour={hour}
                 key={Math.random()}
                 hours="now"
@@ -32,6 +33,7 @@ const WeatherList = (props) => {
           } else {
             return (
               <WeatherCard
+                units={props.units}
                 hour={hour}
                 key={Math.random()}
                 hours={getHour()}

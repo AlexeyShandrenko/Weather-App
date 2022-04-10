@@ -1,7 +1,21 @@
 import React from "react";
+import ModalMenu from "./ModalMenu";
+import UnitChanging from "./UnitChanging";
 
 const Header = (props) => {
   const [time, setTime] = React.useState(new Date());
+  const [menu, setMenu] = React.useState(false);
+  const [displayUnit, setDisplayUnit] = React.useState(false);
+
+  const changeDisplayUnit = () => {
+    setMenu(false);
+    setDisplayUnit((prev) => !prev);
+  };
+
+  const displayModalMenu = () => {
+    setDisplayUnit(false);
+    setMenu((prev) => !prev);
+  };
 
   const getDay = () => {
     switch (time.getDay()) {
@@ -95,16 +109,24 @@ const Header = (props) => {
               {props.weather.name}, {props.weather.sys.country}
             </p>
           </div>
-          <div className="navigation__burger-menu burger-menu">
-            <button className="burger-menu__button">
+          <div className="navigation__menu menu">
+            <button onClick={displayModalMenu} className="menu__button">
               <img
-                src="./images/icons/b.png"
+                src="./images/icons/dots.png"
+                alt=""
                 height="32px"
                 width="32px"
               />
             </button>
           </div>
         </nav>
+        {menu && (
+          <ModalMenu
+            displayUnit={displayUnit}
+            changeDisplayUnit={changeDisplayUnit}
+          />
+        )}
+        {displayUnit && <UnitChanging changeDisplayUnit={changeDisplayUnit} units={props.units} changeUnit={props.changeUnit} />}
       </div>
     </header>
   );

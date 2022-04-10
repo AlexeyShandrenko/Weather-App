@@ -5,12 +5,13 @@ const ModalWindow = (props) => {
     <div className="modal">
       <div className="modal__exit">
         <button className="modal__cross cross" onClick={props.changeCardMode}>
-          <img src="./images/icons/cross.png" />
+          <img src="./images/icons/cross.png" alt="" />
         </button>
       </div>
       <div className="modal__img">
         <img
           src={`http://openweathermap.org/img/wn/${props.hour.weather[0].icon}@2x.png`}
+          alt=""
         />
       </div>
       <div className="modal__info">
@@ -18,10 +19,10 @@ const ModalWindow = (props) => {
           {props.hour.weather[0].description}
         </p>
         <p className="modal__temperature">
-          Temperaure: {Math.round(props.hour.temp)} &deg;C
+          Temperaure: {Math.round(props.hour.temp)} &deg;{props.units === "metric" ? "C" : "F"}
         </p>
         <p className="modal__feel">
-          Feels like: {Math.round(props.hour.feels_like)}
+          Feels like: {Math.round(props.hour.feels_like)} &deg;{props.units === "metric" ? "C" : "F"}
         </p>
         <p className="modal__pressure">
           Pressure: {Math.round(props.hour.pressure)}

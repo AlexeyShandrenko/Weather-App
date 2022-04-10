@@ -5,8 +5,13 @@ import WeatherInfo from "./WeatherInfo";
 const WeatherDay = (props) => {
   return (
     <div className="wrapper">
-      <Header weather={props.weatherData} />
+      <Header
+        weather={props.weatherData}
+        units={props.units}
+        changeUnit={props.changeUnit}
+      />
       <WeatherInfo
+        units={props.units}
         hourlyWeather={props.hourlyWeather}
         weather={props.weatherData}
       />

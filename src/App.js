@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import WeatherDay from "./components/WeatherDay";
 import LoadingPage from "./components/LoadingPage";
+import MyCities from "./components/MyCities";
 
 const App = () => {
   const [latitude, setLatitude] = useState([]);
   const [longitude, setLongitude] = useState([]);
   const [currentdata, setCurrentData] = useState([]);
   const [hourlyData, setHourlyData] = useState([]);
+  const [units, setUnits] = useState('metric');
+
+  const changeUnit = (value) => {
+    setUnits(value);
+  }
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -16,7 +22,7 @@ const App = () => {
 
     const fetchData = async () => {
       await fetch(
-        `${process.env.REACT_APP_API_URL}/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+        `${process.env.REACT_APP_API_URL}/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`
       )
         .then((res) => res.json())
         .then((result) => {
@@ -26,16 +32,17 @@ const App = () => {
 
     const fetchHourlyData = async () => {
       await fetch(
-        `${process.env.REACT_APP_API_URL}/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+        `${process.env.REACT_APP_API_URL}/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&units=${units}&appid=${process.env.REACT_APP_API_KEY}`
       )
         .then((res) => res.json())
         .then((result) => {
           setHourlyData(result);
         });
     };
+
     fetchData();
     fetchHourlyData();
-  }, [latitude, longitude]);
+  }, [latitude, longitude, units]);
 
   return (
     <div>
@@ -45,10 +52,13 @@ const App = () => {
           longitude={longitude}
           weatherData={currentdata}
           hourlyWeather={hourlyData}
+          units={units}
+          changeUnit={changeUnit}
         />
       ) : (
         <LoadingPage />
       )}
+      {/* <MyCities /> */}
     </div>
   );
 };

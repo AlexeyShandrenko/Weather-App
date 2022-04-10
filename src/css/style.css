@@ -199,16 +199,55 @@ body {
   color: #0b0d0f;
 }
 
-.burger-menu {
+.menu {
 }
 
-.burger-menu__button {
+.menu__button {
   background: none;
+  padding: 5px;
+  border-radius: 50%;
+  transition: 0.7s;
 }
 
-.burger-menu__button img {
+.menu__button:hover {
+  background-color: #f8f4ff;
+}
+
+.menu__button img {
   width: 35px;
   height: 35px;
+}
+
+.modal-menu {
+  position: relative;
+  margin-left: auto;
+  margin-right: 20px;
+  border-radius: 5px;
+  border: 1px solid #dbdbdb;
+  padding: 10px;
+  background-color: #fff;
+  max-width: 300px;
+}
+
+.modal-menu__list {
+  font-style: normal;
+  font-weight: 100;
+  font-size: 1.02rem;
+  letter-spacing: 0.1em;
+  color: #0b0d0f;
+}
+
+.modal-menu__item {
+  padding: 10px 5px;
+  border-bottom: 1px solid #dbdbdb;
+  margin: 0 0 10px 0;
+}
+
+.modal-menu__item a {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.02rem;
+  color: #0b0d0f;
 }
 
 .weather {
@@ -289,6 +328,7 @@ body {
 }
 
 .weather-card {
+  cursor: pointer;
   background: none;
   border-radius: 20px;
   text-align: center;
@@ -296,10 +336,11 @@ body {
   grid-auto-flow: row;
   padding: 10px 20px;
   max-height: 200px;
+  transition: 0.7s;
 }
 
 .weather-card:hover {
-  border: 1px solid #ebebeb;
+  background-color: #f8f4ff;
 }
 
 .weather-card__temperature {
@@ -378,4 +419,137 @@ body {
 }
 
 .modal__humidity {
+}
+
+.my-cities {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.city {
+  flex: 1 0 auto;
+}
+
+.city__title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 4rem;
+  letter-spacing: 0.1em;
+  color: #0b0d0f;
+  text-align: center;
+  margin: 0 0 50px 0;
+}
+
+.city__list {
+  margin: 0 0 15px 0;
+}
+
+.city__item {
+  cursor: pointer;
+  background-color: #fff;
+  border: 2px solid #0b0d0f;
+  border-radius: 5px;
+  padding: 20px 50px;
+  margin: 0 0 15px 0;
+}
+
+.city__link {
+}
+
+.city__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.city__name {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+  color: #0b0d0f;
+}
+
+.city__param {
+}
+
+.city__temp {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  color: #0b0d0f;
+}
+
+.city__description {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2.7rem;
+  letter-spacing: 0.1em;
+  color: #0b0d0f;
+}
+
+.city-add {
+  text-align: center;
+}
+
+.city-add__button {
+  background: none;
+}
+
+.city-add__img {
+  margin: 0 0 5px 0;
+}
+
+.city-add__img img {
+  width: 20px;
+  height: 20px;
+}
+
+.city-add__text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  color: #0b0d0f;
+}
+
+.unit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  width: 50%;
+  border: 1px solid #0b0d0f;
+  background-color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.unit__title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  color: #0b0d0f;
+  margin: 0 0 20px 0;
+}
+
+.unit__form {
+
+}
+
+.unit__radio {
+  margin: 0 0 15px 0;
+}
+
+.unit__submit button {
+  background-color: #0b0d0f;
+  padding: 10px 0;
+  width: 100px;
+  margin: 0 auto;
+  color: #fff;
 }
