@@ -481,6 +481,7 @@ body {
   font-size: 2rem;
   letter-spacing: 0.1em;
   color: #0b0d0f;
+  text-align: right;
 }
 
 .city__description {
@@ -539,7 +540,6 @@ body {
 }
 
 .unit__form {
-
 }
 
 .unit__radio {
@@ -547,6 +547,45 @@ body {
 }
 
 .unit__submit button {
+  background-color: #0b0d0f;
+  padding: 10px 0;
+  width: 100px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.add-city {
+  padding: 30px;
+  border: 2px solid #0b0d0f;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  max-width: 50%;
+  text-align: center;
+  background-color: #fff;
+}
+
+.add-city__title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  color: #0b0d0f;
+  margin: 0 0 20px 0;
+}
+
+.add-city__input {
+  margin: 0 0 20px 0;
+}
+
+.add-city__input input[type="text"] {
+  padding: 10px 5px;
+  border: 1px solid #0b0d0f;
+}
+
+.add-city__input button {
   background-color: #0b0d0f;
   padding: 10px 0;
   width: 100px;

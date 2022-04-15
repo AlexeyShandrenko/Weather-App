@@ -12,6 +12,19 @@ const App = () => {
   const [currentdata, setCurrentData] = useState([]);
   const [hourlyData, setHourlyData] = useState([]);
   const [units, setUnits] = useState("metric");
+  const [cities, setCities] = useState([]);
+
+  const addCity = async (city) => {
+    await fetch(
+      `${process.env.REACT_APP_API_URL}/weather?q=${city}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`
+    )
+      .then((res) => res.json())
+      .then((result) =>
+        setCities((prev) => {
+          return [...prev, result];
+        })
+      );
+  };
 
   const changeUnit = (value) => {
     setUnits(value);
@@ -23,6 +36,8 @@ const App = () => {
       setLongitude(position.coords.longitude);
     });
 
+    // `${process.env.REACT_APP_API_URL}/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`
+
     const fetchData = async () => {
       await fetch(
         `${process.env.REACT_APP_API_URL}/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`
@@ -30,6 +45,7 @@ const App = () => {
         .then((res) => res.json())
         .then((result) => {
           setCurrentData(result);
+          setCities([result]);
         });
     };
 
@@ -67,7 +83,19 @@ const App = () => {
         ) : (
           <Route path="/" element={<LoadingPage />} />
         )}
-        <Route path="/my_cities" element={<MyCities />} />
+        <Route
+          path="/my_cities"
+          element={
+            <MyCities
+              addCity={addCity}
+              cities={cities}
+              latitude={latitude}
+              longitude={longitude}
+              weatherData={currentdata}
+              units={units}
+            />
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

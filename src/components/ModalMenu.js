@@ -10,7 +10,7 @@ const ModalMenu = (props) => {
                     <Link to="/my_cities">My Cities</Link>
                 </li>
                 <li className="modal-menu__item">
-                    <a onClick={props.changeDisplayUnit}>Unit of Temperature Measurement</a>
+                    <a href="#" onClick={props.changeDisplayUnit}>Unit of Temperature Measurement</a>
                 </li>
             </ul>
         </div>

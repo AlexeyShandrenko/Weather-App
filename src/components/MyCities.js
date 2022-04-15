@@ -1,29 +1,37 @@
 import React from "react";
+import AddCityModal from "./AddCityModal";
+import CityCard from "./CityCard";
 
-const MyCities = () => {
+const MyCities = (props) => {
+  const [addCityModal, setAddCityModal] = React.useState(false);
+
+  const displayAddCityModal = () => {
+    setAddCityModal((prev) => !prev);
+  };
+
   return (
     <div className="wrapper">
       <div className="city">
         <div className="container">
           <h1 className="city__title">My Cities</h1>
           <ul className="city__list">
-            <li className="city__item">
-              <a href="#" className="city__link">
-                <div className="city__info">
-                  <p className="city__name">Kazan</p>
-                  <div className="city__param">
-                    <p className="city__temp">-2&deg;C</p>
-                    <p className="city__description">Snow</p>
-                  </div>
-                </div>
-              </a>
-            </li>
+            {props.cities.map((city) => {
+              return (
+                <CityCard
+                  units={props.units}
+                  name={city.name}
+                  temp={Math.round(city.main.temp)}
+                  description={city.weather[0].description}
+                  key={Math.random()}
+                />
+              );
+            })}
           </ul>
         </div>
       </div>
       <div className="city-add">
         <div className="container">
-          <button className="city-add__button">
+          <button onClick={displayAddCityModal} className="city-add__button">
             <div className="city-add__img">
               <img src="./images/icons/plus.png" alt="" />
             </div>
@@ -31,6 +39,7 @@ const MyCities = () => {
           </button>
         </div>
       </div>
+      {addCityModal && <AddCityModal displayAddCityModal={displayAddCityModal} addCity={props.addCity} />}
     </div>
   );
 };
