@@ -2,39 +2,39 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
 import WeatherDay from "./components/WeatherDay";
-import LoadingPage from "./components/LoadingPage";
-import MyCities from "./components/MyCities";
-import NotFound from "./components/NotFound";
+// import LoadingPage from "./components/LoadingPage";
+// import MyCities from "./components/MyCities";
+// import NotFound from "./components/NotFound";
 
 const App = () => {
   const [latitude, setLatitude] = useState([]);
   const [longitude, setLongitude] = useState([]);
-  const [currentdata, setCurrentData] = useState([]);
-  const [hourlyData, setHourlyData] = useState([]);
-  const [units, setUnits] = useState("metric");
-  const [cities, setCities] = useState([]);
-  const [city, setCity] = useState([]);
+  // const [currentdata, setCurrentData] = useState([]);
+  // const [hourlyData, setHourlyData] = useState([]);
+  // const [units, setUnits] = useState("metric");
+  // const [cities, setCities] = useState([]);
+  // const [city, setCity] = useState([]);
 
-  const chooseCityByName = (name) => {
-    const city = cities.filter((city) => city.name === name);
-    setCity(city);
-  };
+  // const chooseCityByName = (name) => {
+  //   const city = cities.filter((city) => city.name === name);
+  //   setCity(city);
+  // };
 
-  const addCity = async (city) => {
-    await fetch(
-      `${process.env.REACT_APP_API_URL}/weather?q=${city}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`
-    )
-      .then((res) => res.json())
-      .then((result) =>
-        setCities((prev) => {
-          return [...prev, result];
-        })
-      );
-  };
+  // const addCity = async (city) => {
+  //   await fetch(
+  //     `${process.env.REACT_APP_API_URL}/weather?q=${city}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((result) =>
+  //       setCities((prev) => {
+  //         return [...prev, result];
+  //       })
+  //     );
+  // };
 
-  const changeUnit = (value) => {
-    setUnits(value);
-  };
+  // const changeUnit = (value) => {
+  //   setUnits(value);
+  // };
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -44,36 +44,40 @@ const App = () => {
 
     // `${process.env.REACT_APP_API_URL}/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`
 
-    const fetchData = async () => {
-      await fetch(
-        `${process.env.REACT_APP_API_URL}/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          setCurrentData(result);
-          setCities([result]);
-        });
-    };
+    // const fetchData = async () => {
+    //   await fetch(
+    //     `${process.env.REACT_APP_API_URL}/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${process.env.REACT_APP_API_KEY}`
+    //   )
+    //     .then((res) => res.json())
+    //     .then((result) => {
+    //       setCurrentData(result);
+    //       setCities([result]);
+    //     });
+    // };
 
-    const fetchHourlyData = async () => {
-      await fetch(
-        `${process.env.REACT_APP_API_URL}/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&units=${units}&appid=${process.env.REACT_APP_API_KEY}`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          setHourlyData(result);
-        });
-    };
+    // const fetchHourlyData = async () => {
+    //   await fetch(
+    //     `${process.env.REACT_APP_API_URL}/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&units=${units}&appid=${process.env.REACT_APP_API_KEY}`
+    //   )
+    //     .then((res) => res.json())
+    //     .then((result) => {
+    //       setHourlyData(result);
+    //     });
+    // };
 
-    fetchData();
-    fetchHourlyData();
-  }, [latitude, longitude, units]);
-
-  console.log(cities);
+    // fetchData();
+    // fetchHourlyData();
+  }, [latitude, longitude]);
 
   return (
     <div>
       <Routes>
+        <Route
+          path="/:cityName"
+          element={<WeatherDay latitude={latitude} longitude={longitude} />}
+        />
+      </Routes>
+      {/* <Routes>
         {typeof currentdata.main !== "undefined" ? (
           <Route
             path="/"
@@ -111,7 +115,7 @@ const App = () => {
             <WeatherDay
               latitude={latitude}
               longitude={longitude}
-              weatherData={city}
+              weatherData={currentdata}
               hourlyWeather={hourlyData}
               units={units}
               changeUnit={changeUnit}
@@ -119,7 +123,7 @@ const App = () => {
           }
         />
         <Route path="*" element={<NotFound />} />
-      </Routes>
+      </Routes> */}
     </div>
   );
 };
