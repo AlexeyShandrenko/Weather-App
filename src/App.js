@@ -13,6 +13,12 @@ const App = () => {
   const [hourlyData, setHourlyData] = useState([]);
   const [units, setUnits] = useState("metric");
   const [cities, setCities] = useState([]);
+  const [city, setCity] = useState([]);
+
+  const chooseCityByName = (name) => {
+    const city = cities.filter((city) => city.name === name);
+    setCity(city);
+  };
 
   const addCity = async (city) => {
     await fetch(
@@ -63,6 +69,8 @@ const App = () => {
     fetchHourlyData();
   }, [latitude, longitude, units]);
 
+  console.log(cities);
+
   return (
     <div>
       <Routes>
@@ -87,12 +95,26 @@ const App = () => {
           path="/my_cities"
           element={
             <MyCities
+              chooseCityByName={chooseCityByName}
               addCity={addCity}
               cities={cities}
               latitude={latitude}
               longitude={longitude}
               weatherData={currentdata}
               units={units}
+            />
+          }
+        />
+        <Route
+          path="/:city_name"
+          element={
+            <WeatherDay
+              latitude={latitude}
+              longitude={longitude}
+              weatherData={city}
+              hourlyWeather={hourlyData}
+              units={units}
+              changeUnit={changeUnit}
             />
           }
         />

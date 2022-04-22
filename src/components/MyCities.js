@@ -18,6 +18,7 @@ const MyCities = (props) => {
             {props.cities.map((city) => {
               return (
                 <CityCard
+                  chooseCityByName={props.chooseCityByName}
                   units={props.units}
                   name={city.name}
                   temp={Math.round(city.main.temp)}
@@ -39,7 +40,12 @@ const MyCities = (props) => {
           </button>
         </div>
       </div>
-      {addCityModal && <AddCityModal displayAddCityModal={displayAddCityModal} addCity={props.addCity} />}
+      {addCityModal && (
+        <AddCityModal
+          displayAddCityModal={displayAddCityModal}
+          addCity={props.addCity}
+        />
+      )}
     </div>
   );
 };

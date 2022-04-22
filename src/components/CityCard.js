@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 const CityCard = (props) => {
   return (
     <li className="city__item">
-      <Link to="/" className="city__link">
+      <Link
+        onClick={() => props.chooseCityByName(props.name)}
+        to={`/${props.name}`}
+        className="city__link"
+      >
         <div className="city__info">
           <p className="city__name">{props.name}</p>
           <div className="city__param">
